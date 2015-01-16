@@ -1,5 +1,6 @@
 package com.efun.lib.pay.demo;
 
+import com.efun.lib.pay.PayActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -15,6 +16,9 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends FragmentActivity implements
 		ConnectionCallbacks, OnConnectionFailedListener {
@@ -35,10 +39,19 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		mResolvingError = savedInstanceState != null
-	            && savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
+				&& savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
 		mGoogleApiClient = new GoogleApiClient.Builder(this).addApi(Drive.API)
 				.addScope(Drive.SCOPE_FILE).addConnectionCallbacks(this)
 				.addOnConnectionFailedListener(this).build();
+		findViewById(R.id.start).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Log.d("alex", "on click!");
+				Intent intent = new Intent(MainActivity.this, PayActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -60,7 +73,7 @@ public class MainActivity extends FragmentActivity implements
 		Log.d("alex", TAG + ": onConnectionFailed!");
 		if (result.getErrorCode() == ConnectionResult.API_UNAVAILABLE) {
 			Log.d("alex", TAG + ": API_UNAVAILABLE!");
-	    }
+		}
 		if (mResolvingError) {
 			// Already attempting to resolve an error.
 			return;
@@ -143,7 +156,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-	    super.onSaveInstanceState(outState);
-	    outState.putBoolean(STATE_RESOLVING_ERROR, mResolvingError);
+		super.onSaveInstanceState(outState);
+		outState.putBoolean(STATE_RESOLVING_ERROR, mResolvingError);
 	}
 }
