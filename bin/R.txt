@@ -93,6 +93,9 @@ int id buyButton 0x7f06000a
 int id buy_now 0x7f06000f
 int id buy_with_google 0x7f06000e
 int id classic 0x7f060011
+int id consumePurchase 0x7f060018
+int id getPurchase 0x7f060017
+int id getSkuInfo 0x7f060015
 int id grayscale 0x7f060012
 int id holo_dark 0x7f060005
 int id holo_light 0x7f060006
@@ -105,7 +108,8 @@ int id production 0x7f060007
 int id sandbox 0x7f060008
 int id satellite 0x7f060002
 int id selectionDetails 0x7f06000b
-int id start 0x7f060015
+int id start 0x7f060019
+int id startPay 0x7f060016
 int id strict_sandbox 0x7f060009
 int id terrain 0x7f060003
 int id test 0x7f060014

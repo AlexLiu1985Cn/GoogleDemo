@@ -1,5 +1,6 @@
-package com.efun.lib.pay.demo;
+package com.alex.test.mytest.test2;
 
+import com.alex.test.mytest.test2.R;
 import com.efun.lib.pay.PayActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -18,7 +19,6 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class MainActivity extends FragmentActivity implements
 		ConnectionCallbacks, OnConnectionFailedListener {
